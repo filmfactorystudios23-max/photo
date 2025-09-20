@@ -1,26 +1,30 @@
 import React from "react";
+import logo from "../../assets/logo.jpg";
 
 const Footer = () => {
   return (
-    <footer id="contact">
+    <footer>
       <div className="section__container footer__container">
         <div className="footer__col">
-          <img src="assets/logo-dark.png" alt="logo" />
+          <img
+            src={logo}
+            alt="logo"
+            style={{
+              borderRadius: "50%",
+              width: "100px",
+              height: "100px",
+              objectFit: "cover",
+            }}
+          />
           <div className="footer__socials">
-            <a href="#">
+            <a href="https://www.facebook.com/p/Film-Factory-Studios-100092703673146/" target="_blank" rel="noopener noreferrer">
               <i className="ri-facebook-fill"></i>
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/filmfactory_studios/?igsh=MWY5NHNzZHE5MXhoaw%3D%3D&utm_source=qr#" target="_blank" rel="noopener noreferrer">
               <i className="ri-instagram-line"></i>
             </a>
-            <a href="#">
-              <i className="ri-twitter-fill"></i>
-            </a>
-            <a href="#">
-              <i className="ri-youtube-fill"></i>
-            </a>
-            <a href="#">
-              <i className="ri-pinterest-line"></i>
+            <a href="mailto:filmfactorystudios23@gmail.com" target="_blank" rel="noopener noreferrer">
+              <i className="ri-mail-line"></i>
             </a>
           </div>
         </div>
@@ -37,11 +41,9 @@ const Footer = () => {
               <a href="#service">SERVICES</a>
             </li>
             <li>
-              <a href="#client">CLIENT</a>
+              <a href="#client">TESTIMONIAL</a>
             </li>
-            <li>
-              <a href="#blog">BLOG</a>
-            </li>
+
             <li>
               <a href="#contact">CONTACT US</a>
             </li>
@@ -58,7 +60,7 @@ const Footer = () => {
       </div>
 
       <div className="footer__bar">
-        Copyright © 2024 Web Design Mastery. All rights reserved.
+        Copyright © 2025 Flim Factory Studios. All rights reserved.
       </div>
     </footer>
   );

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./app.css";
 import Header from "./components/Header/Header";
@@ -7,9 +8,13 @@ import Portfolio from "./components/Portfolio/Portfolio";
 import Services from "./components/Services/Services";
 import Clients from "./components/Clients/Clients";
 import Gallery from "./components/Gallery/Gallery";
-import Blog from "./components/Blog/Blog";
 import Instagram from "./components/Instagram/Instagram";
 import Footer from "./components/Footer/Footer";
+import FullGallery from "./pages/FullGallery";
+import ChildrenGallery from "./pages/ChildrenGallery";
+import MaternityGallery from "./pages/MaternityGallery";
+import ScrollToTop from "./components/ScrollToTop";
+import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
 
 const App = () => {
   useEffect(() => {
@@ -69,8 +74,26 @@ const App = () => {
     // === Swiper ===
     if (typeof window !== "undefined" && window.Swiper) {
       new window.Swiper(".swiper", {
-        loop: true,
-        pagination: { el: ".swiper-pagination" },
+        loop: false,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          dynamicBullets: false,
+          renderBullet: function (index, className) {
+            return '<span class="' + className + '"></span>';
+          },
+        },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        slidesPerView: 1,
+        spaceBetween: 30,
+        watchSlidesProgress: true,
       });
     }
 
@@ -92,18 +115,30 @@ const App = () => {
     };
   }, []);
 
-  return (
+  const HomePage = () => (
     <>
       <Header />
-      <About />
       <Portfolio />
-      <Services />
-      <Clients />
       <Gallery />
-      <Blog />
+      <Clients />
+      <About />
+      <Services />
       <Instagram />
       <Footer />
     </>
+  );
+
+  return (
+    <Router>
+      <ScrollToTop />
+      <FloatingButtons />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/gallery" element={<FullGallery />} />
+        <Route path="/children" element={<ChildrenGallery />} />
+        <Route path="/maternity" element={<MaternityGallery />} />
+      </Routes>
+    </Router>
   );
 };
 

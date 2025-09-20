@@ -8,39 +8,204 @@ const Clients = () => {
         <div className="swiper-wrapper">
           <div className="swiper-slide">
             <div className="client__card">
-              <img src="assets/client-1.jpg" alt="client" />
+              <div style={{
+                width: "60px",
+                height: "60px",
+                borderRadius: "50%",
+                backgroundColor: "#ddd",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                fontWeight: "bold",
+                color: "#666",
+                margin: "0 auto 20px"
+              }}>M</div>
               <p>
-                Capturer exceeded all our expectations! Their attention to
-                detail and ability to capture the essence of our special day was
-                truly remarkable. Every time we look at our wedding photos,
-                we're transported back to those magical moments.
+                A very good photographer. I have never seen a photographer as elegant as him. Both his videos and his working style were very good. I was so happy when all my personal relationships were captured so beautifully and realistically in an album at my wedding.
               </p>
-              <h4>Sarah and Michael</h4>
+              <div className="star-rating">
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+              </div>
+              <h4>Manish</h4>
             </div>
           </div>
           <div className="swiper-slide">
             <div className="client__card">
-              <img src="assets/client-2.jpg" alt="client" />
+              <div style={{
+                width: "60px",
+                height: "60px",
+                borderRadius: "50%",
+                backgroundColor: "#ddd",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                fontWeight: "bold",
+                color: "#666",
+                margin: "0 auto 20px"
+              }}>V</div>
               <p>
-                We couldn't be happier with our family portrait session with
-                Capturer. They made us feel relaxed and comfortable throughout
-                the entire shoot, resulting in natural and candid photos.
+                Film factory studios team has captured every wonderful moment of the day and was very discrete and professional. His photographs are beautiful and service is outstanding and we will be recommending him to everyone who we know getting married.
               </p>
-              <h4>The Johnson Family</h4>
+              <div className="star-rating">
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+              </div>
+              <h4>Vinoth S</h4>
             </div>
           </div>
           <div className="swiper-slide">
             <div className="client__card">
-              <img src="assets/client-3.jpg" alt="client" />
+              <div style={{
+                width: "60px",
+                height: "60px",
+                borderRadius: "50%",
+                backgroundColor: "#ddd",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                fontWeight: "bold",
+                color: "#666",
+                margin: "0 auto 20px"
+              }}>R</div>
               <p>
-                Capturer's maternity and newborn sessions captured the most
-                precious moments of our lives with such tenderness and care.
+                Very Good team, Got most beautiful pictures for both outdoor and marriage. Friends and relatives are enquiring for their functions after seeing their work. Definitely recommendable...best candid wedding photography in madurai.
               </p>
-              <h4>Emily and David</h4>
+              <div className="star-rating">
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+              </div>
+              <h4>Raja Pandiyan</h4>
+            </div>
+          </div>
+          <div className="swiper-slide">
+            <div className="client__card">
+              <div style={{
+                width: "60px",
+                height: "60px",
+                borderRadius: "50%",
+                backgroundColor: "#ddd",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                fontWeight: "bold",
+                color: "#666",
+                margin: "0 auto 20px"
+              }}>P</div>
+              <p>
+                We had an astonishing experience with the film factory studios photography Madurai team; actually, we hired them for my brother wedding and engagement celebration. They understood our requirements and delivered way much more than we expected.
+              </p>
+              <div className="star-rating">
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+              </div>
+              <h4>Priyanka Gj</h4>
+            </div>
+          </div>
+          <div className="swiper-slide">
+            <div className="client__card">
+              <div style={{
+                width: "60px",
+                height: "60px",
+                borderRadius: "50%",
+                backgroundColor: "#ddd",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                fontWeight: "bold",
+                color: "#666",
+                margin: "0 auto 20px"
+              }}>S</div>
+              <p>
+                Best professional photography ever!!! Result was just wow! Especially Candid photography work was outstanding.
+              </p>
+              <div className="star-rating">
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+              </div>
+              <h4>Shalini Suresh</h4>
+            </div>
+          </div>
+          <div className="swiper-slide">
+            <div className="client__card">
+              <div style={{
+                width: "60px",
+                height: "60px",
+                borderRadius: "50%",
+                backgroundColor: "#ddd",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                fontWeight: "bold",
+                color: "#666",
+                margin: "0 auto 20px"
+              }}>T</div>
+              <p>
+                Great excellent memories, nice experience and awesome photoshoot. A.R.Sabarieswaran brother excellent photographer, wonderful nit shoots, creating unforgettable memories in his photoshoot, amazing album works.
+              </p>
+              <div className="star-rating">
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+              </div>
+              <h4>Thiru</h4>
+            </div>
+          </div>
+          <div className="swiper-slide">
+            <div className="client__card">
+              <div style={{
+                width: "60px",
+                height: "60px",
+                borderRadius: "50%",
+                backgroundColor: "#ddd",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                fontWeight: "bold",
+                color: "#666",
+                margin: "0 auto 20px"
+              }}>A</div>
+              <p>
+                Hopefully amazing work even more Creativity along with Candid. The Best photography in Madurai.
+              </p>
+              <div className="star-rating">
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+                <i className="ri-star-fill"></i>
+              </div>
+              <h4>Ajith Kumar</h4>
             </div>
           </div>
         </div>
         <div className="swiper-pagination"></div>
+        <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next"></div>
       </div>
     </section>
   );

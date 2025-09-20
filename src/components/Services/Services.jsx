@@ -28,10 +28,10 @@ const Services = () => {
             </p>
           </div>
           <div className="service__card">
-            <h4>Family Sessions</h4>
+            <h4>Wedding Sessions</h4>
             <p>
-              Cherish the bond of family with our custom-designed playful candid
-              moments and portrait sessions.
+              Capture your special day with beautiful wedding photography that
+              preserves every precious moment forever.
             </p>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../assets/logo.jpg";
 
 const About = () => {
   return (
@@ -11,10 +12,10 @@ const About = () => {
         extraordinary memories.
       </p>
       <p className="section__description">
-        Whether it's a milestone event, a candid portrait, or the breathtaking
+        Whether it's a milestone event, capturing precious child moments, or the breathtaking
         beauty of nature, we strive to encapsulate the essence of every moment.
       </p>
-      <img src="assets/logo-dark.png" alt="logo" />
+      <img src={logo} alt="logo" style={{borderRadius: "50%", width: "200px", height: "100px", objectFit: "cover"}} />
     </div>
   );
 };

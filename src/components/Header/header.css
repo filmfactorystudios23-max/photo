@@ -1,0 +1,11 @@
+.transition-opacity {
+    transition-property: opacity;
+}
+
+.duration-1000 {
+    transition-duration: 1000ms;
+}
+
+.ease-in-out {
+    transition-timing-function: ease-in-out;
+}
