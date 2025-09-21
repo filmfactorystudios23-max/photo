@@ -57,13 +57,6 @@ const App = () => {
       });
       sr.reveal(".about__container img", { delay: 1500 });
 
-      sr.reveal(".service__container .section__header");
-      sr.reveal(".service__container .section__description", { delay: 500 });
-      sr.reveal(".service__card", {
-        duration: 1000,
-        delay: 1000,
-        interval: 500,
-      });
 
       sr.reveal(".blog__content .section__header");
       sr.reveal(".blog__content h4", { delay: 500 });
