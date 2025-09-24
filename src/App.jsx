@@ -13,6 +13,9 @@ import Footer from "./components/Footer/Footer";
 import FullGallery from "./pages/FullGallery";
 import ChildrenGallery from "./pages/ChildrenGallery";
 import MaternityGallery from "./pages/MaternityGallery";
+import AdminDashboard from "./pages/AdminDashboard";
+import CategoriesPage from "./pages/CategoriesPage";
+import CategoryPhotosPage from "./pages/CategoryPhotosPage";
 import ScrollToTop from "./components/ScrollToTop";
 import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
 
@@ -130,6 +133,9 @@ const App = () => {
         <Route path="/gallery" element={<FullGallery />} />
         <Route path="/children" element={<ChildrenGallery />} />
         <Route path="/maternity" element={<MaternityGallery />} />
+        <Route path="/categories" element={<CategoriesPage />} />
+        <Route path="/category/:categoryId" element={<CategoryPhotosPage />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </Router>
   );

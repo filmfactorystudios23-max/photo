@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import banner1 from "../../assets/banner1.jpg";
 import banner2 from "../../assets/banner2.jpg";
 import banner3 from "../../assets/banner3.jpg";
@@ -14,8 +15,10 @@ const Header = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const location = useLocation();
 
   const bannerImages = isMobile ? mobileBannerImages : desktopBannerImages;
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     setProgress(0);
@@ -118,16 +121,31 @@ const Header = () => {
         </div>
         <ul className="nav__links" id="nav-links">
           <li>
-            <a href="#home">HOME</a>
+            {isHomePage ? (
+              <a href="#home">HOME</a>
+            ) : (
+              <Link to="/">HOME</Link>
+            )}
           </li>
           <li>
-            <a href="#about">ABOUT US</a>
+            {isHomePage ? (
+              <a href="#about">ABOUT US</a>
+            ) : (
+              <Link to="/#about">ABOUT US</Link>
+            )}
           </li>
           <li>
-            <a href="#service">SERVICES</a>
+            <Link to="/categories">CATEGORIES</Link>
+          </li>
+          <li>
+            {isHomePage ? (
+              <a href="#service">SERVICES</a>
+            ) : (
+              <Link to="/#service">SERVICES</Link>
+            )}
           </li>
           <li className="nav__logo">
-            <a href="#">
+            <Link to="/">
               <img
                 src={logo}
                 alt="logo"
@@ -138,13 +156,21 @@ const Header = () => {
                   objectFit: "cover",
                 }}
               />
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#client">TESTIMONIAL</a>
+            {isHomePage ? (
+              <a href="#client">TESTIMONIAL</a>
+            ) : (
+              <Link to="/#client">TESTIMONIAL</Link>
+            )}
           </li>
           <li>
-            <a href="#contact">CONTACT US</a>
+            {isHomePage ? (
+              <a href="#contact">CONTACT US</a>
+            ) : (
+              <Link to="/#contact">CONTACT US</Link>
+            )}
           </li>
         </ul>
       </nav>
