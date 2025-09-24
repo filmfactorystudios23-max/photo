@@ -18,7 +18,7 @@ const Header = () => {
   const location = useLocation();
 
   const bannerImages = isMobile ? mobileBannerImages : desktopBannerImages;
-  const isHomePage = location.pathname === '/';
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     setProgress(0);
@@ -46,9 +46,9 @@ const Header = () => {
     };
 
     checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
+    window.addEventListener("resize", checkScreenSize);
 
-    return () => window.removeEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
   }, [isMobile]);
 
   const handleIndicatorClick = (index) => {
@@ -121,11 +121,7 @@ const Header = () => {
         </div>
         <ul className="nav__links" id="nav-links">
           <li>
-            {isHomePage ? (
-              <a href="#home">HOME</a>
-            ) : (
-              <Link to="/">HOME</Link>
-            )}
+            {isHomePage ? <a href="#home">HOME</a> : <Link to="/">HOME</Link>}
           </li>
           <li>
             {isHomePage ? (
@@ -134,9 +130,7 @@ const Header = () => {
               <Link to="/#about">ABOUT US</Link>
             )}
           </li>
-          <li>
-            <Link to="/categories">CATEGORIES</Link>
-          </li>
+
           <li>
             {isHomePage ? (
               <a href="#service">SERVICES</a>
