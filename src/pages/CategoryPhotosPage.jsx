@@ -11,6 +11,12 @@ const CategoryPhotosPage = () => {
 
   const categoryName = location.state?.categoryName || "Category";
 
+  useEffect(() => {
+   
+
+    setPhotos(demoPhotosByCategory[categoryId] || []);
+  }, [categoryId]);
+
   const openLightbox = (photo) => {
     setSelectedPhoto(photo);
   };

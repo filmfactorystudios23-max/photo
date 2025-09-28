@@ -12,8 +12,6 @@ import Gallery from "./components/Gallery/Gallery";
 import Instagram from "./components/Instagram/Instagram";
 import Footer from "./components/Footer/Footer";
 import FullGallery from "./pages/FullGallery";
-import ChildrenGallery from "./pages/ChildrenGallery";
-import MaternityGallery from "./pages/MaternityGallery";
 import CategoriesPage from "./pages/CategoriesPage";
 import CategoryPhotosPage from "./pages/CategoryPhotosPage";
 import DynamicCategoryPage from "./pages/DynamicCategoryPage";
