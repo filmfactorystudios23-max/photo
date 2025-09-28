@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { galleryImages } from "../assets/imageConfig.js";
 
-// Import maternity images
-import maternity from "../assets/maternity.jpg";
-import maternity1 from "../assets/maternity1.jpg";
-import maternity2 from "../assets/ maternity2.jpg";
-import maternity3 from "../assets/maternity3.jpg";
-import maternity4 from "../assets/maternity4.jpg";
-
-const maternityImages = [maternity, maternity1, maternity2, maternity3, maternity4];
+const maternityImages = galleryImages.maternity;
 
 const MaternityGallery = () => {
   const navigate = useNavigate();

@@ -1,68 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Loader, Camera } from 'lucide-react';
-import { categoriesService, photosService } from '../services/database.js';
-import '../styles/admin.css';
+import { Camera } from 'lucide-react';
 
 const CategoriesPage = () => {
-  const [categories, setCategories] = useState([]);
   const [categoriesWithPhotos, setCategoriesWithPhotos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    loadCategoriesWithPhotos();
+    // Static demo data - no database needed for user application
+    const demoCategories = [
+      {
+        id: 1,
+        name: "Wedding Photography",
+        description: "Beautiful wedding moments captured forever",
+        photoCount: 25,
+        thumbnailUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        created_at: new Date().toISOString()
+      },
+      {
+        id: 2,
+        name: "Portrait Photography",
+        description: "Professional portrait sessions",
+        photoCount: 18,
+        thumbnailUrl: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        created_at: new Date().toISOString()
+      },
+      {
+        id: 3,
+        name: "Event Photography",
+        description: "Special events and celebrations",
+        photoCount: 32,
+        thumbnailUrl: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        created_at: new Date().toISOString()
+      }
+    ];
+
+    setCategoriesWithPhotos(demoCategories);
   }, []);
-
-  const loadCategoriesWithPhotos = async () => {
-    try {
-      setLoading(true);
-      const [categoriesData, photosData] = await Promise.all([
-        categoriesService.getAll(),
-        photosService.getAll()
-      ]);
-
-      // Count photos for each category and get first photo as thumbnail
-      const categoriesWithCounts = categoriesData.map(category => {
-        const categoryPhotos = photosData.filter(photo => photo.category_id === category.id);
-        return {
-          ...category,
-          photoCount: categoryPhotos.length,
-          // Use category image if available, otherwise fall back to first photo
-          thumbnailUrl: category.image_url || categoryPhotos[0]?.url || null
-        };
-      });
-
-      setCategoriesWithPhotos(categoriesWithCounts);
-    } catch (err) {
-      setError('Failed to load categories: ' + err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleCategoryClick = (categoryId, categoryName) => {
     navigate(`/category/${categoryId}`, { state: { categoryName } });
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex justify-center items-center">
-        <Loader className="animate-spin h-12 w-12 text-blue-600" />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex justify-center items-center">
-        <div className="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg">
-          {error}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50">

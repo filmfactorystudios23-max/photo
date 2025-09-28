@@ -1,11 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { galleryImages } from "../assets/imageConfig.js";
 
-// Import wedding images
-import wedding from "../assets/wedding.jpg";
-import wedding1 from "../assets/wedding1.jpg";
-
-const weddingImages = [wedding, wedding1];
+const weddingImages = galleryImages.wedding;
 
 const WeddingGallery = () => {
   const navigate = useNavigate();

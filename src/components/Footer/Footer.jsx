@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo.jpg";
+import { uiAssets } from "../../assets/imageConfig.js";
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="section__container footer__container">
         <div className="footer__col">
           <img
-            src={logo}
+            src={uiAssets.logo}
             alt="logo"
             style={{
               borderRadius: "50%",

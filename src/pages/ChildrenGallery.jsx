@@ -1,17 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { galleryImages } from "../assets/imageConfig.js";
 
-// Import children images
-import child from "../assets/child.jpg";
-import child1 from "../assets/child1.jpg";
-import child2 from "../assets/child2.jpg";
-import child3 from "../assets/child3.jpg";
-import child4 from "../assets/child4.jpg";
-import child5 from "../assets/child5.JPG";
-import yazh8696 from "../assets/YAZH8696 copy.jpg";
-import yazh9982 from "../assets/YAZH9982-Recovered.jpg";
-
-const childrenImages = [child, child1, child2, child3, child4, child5, yazh8696, yazh9982];
+const childrenImages = galleryImages.children;
 
 const ChildrenGallery = () => {
   const navigate = useNavigate();

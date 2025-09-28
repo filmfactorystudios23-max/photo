@@ -200,6 +200,7 @@ nav {
 }
 
 .portfolio__card::after {
+  content: var(--category-name);
   position: absolute;
   bottom: 2rem;
   left: 50%;
@@ -209,17 +210,6 @@ nav {
   color: var(--white);
 }
 
-.portfolio__card:nth-child(1)::after {
-  content: "Portraits";
-}
-
-.portfolio__card:nth-child(2)::after {
-  content: "Weddings";
-}
-
-.portfolio__card:nth-child(3)::after {
-  content: "Maternity";
-}
 
 .portfolio__content {
   position: absolute;

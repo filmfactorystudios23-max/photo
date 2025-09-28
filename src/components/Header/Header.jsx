@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import banner1 from "../../assets/banner1.jpg";
-import banner2 from "../../assets/banner2.jpg";
-import banner3 from "../../assets/banner3.jpg";
-import banner4 from "../../assets/banner4.jpg";
-import child from "../../assets/child.jpg";
-import AR_00926 from "../../assets/AR_00926.jpg";
-import logo from "../../assets/logo.jpg";
-
-const desktopBannerImages = [banner1, banner2, banner3, banner4];
-const mobileBannerImages = [child, banner4, banner2, AR_00926];
+import { uiAssets } from "../../assets/imageConfig.js";
+import { usePhoto } from "../../context/PhotoContext";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Header = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
+  const { sliderImages, loading } = usePhoto();
 
-  const bannerImages = isMobile ? mobileBannerImages : desktopBannerImages;
+  // Get slider images from API data based on screen size
+  const currentSliderImages = sliderImages ?
+    (isMobile ? (sliderImages.mobile || []) : (sliderImages.desktop || [])) : [];
+  const apiSliderImages = currentSliderImages.map(img => img.url);
+
+  // Fallback to at least one image if no slider images available
+  const bannerImages = apiSliderImages.length > 0 ? apiSliderImages : [uiAssets.logo];
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
@@ -62,8 +63,23 @@ const Header = () => {
       id="home"
       style={{ minHeight: "100vh" }}
     >
+      {/* Loading state with skeleton */}
+      {loading && (
+        <div className="absolute inset-0">
+          <SkeletonTheme baseColor="#e0e0e0" highlightColor="#f0f0f0">
+            <Skeleton
+              height="100vh"
+              style={{
+                borderRadius: 0,
+                animation: "pulse 2s ease-in-out infinite alternate",
+              }}
+            />
+          </SkeletonTheme>
+        </div>
+      )}
+
       {/* Background crossfade banner images */}
-      {bannerImages.map((img, index) => (
+      {!loading && bannerImages.map((img, index) => (
         <div
           key={index}
           className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
@@ -78,25 +94,45 @@ const Header = () => {
       ))}
 
       {/* Carousel indicators - progress lines */}
-      <div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex z-20"
-        style={{ gap: "15px" }}
-      >
-        {bannerImages.map((_, index) => (
-          <button
-            key={index}
-            className="relative w-12 h-1 bg-white/30 rounded-full overflow-hidden"
-            onClick={() => handleIndicatorClick(index)}
-          >
-            <div
-              className="absolute left-0 top-0 h-full bg-white rounded-full transition-all duration-100"
-              style={{
-                width: currentImage === index ? `${progress}%` : "0%",
-              }}
-            />
-          </button>
-        ))}
-      </div>
+      {loading && (
+        <div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex z-20"
+          style={{ gap: "15px" }}
+        >
+          <SkeletonTheme baseColor="rgba(255,255,255,0.3)" highlightColor="rgba(255,255,255,0.5)">
+            {[1, 2, 3, 4].map((index) => (
+              <Skeleton
+                key={index}
+                width={48}
+                height={4}
+                style={{ borderRadius: "2px" }}
+              />
+            ))}
+          </SkeletonTheme>
+        </div>
+      )}
+
+      {!loading && bannerImages.length > 1 && (
+        <div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex z-20"
+          style={{ gap: "15px" }}
+        >
+          {bannerImages.map((_, index) => (
+            <button
+              key={index}
+              className="relative w-12 h-1 bg-white/30 rounded-full overflow-hidden"
+              onClick={() => handleIndicatorClick(index)}
+            >
+              <div
+                className="absolute left-0 top-0 h-full bg-white rounded-full transition-all duration-100"
+                style={{
+                  width: currentImage === index ? `${progress}%` : "0%",
+                }}
+              />
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Navbar on top */}
       <nav className="relative z-10">
@@ -104,7 +140,7 @@ const Header = () => {
           <div className="nav__logo">
             <a href="#">
               <img
-                src={logo}
+                src={uiAssets.logo}
                 alt="logo"
                 style={{
                   borderRadius: "50%",
@@ -141,7 +177,7 @@ const Header = () => {
           <li className="nav__logo">
             <Link to="/">
               <img
-                src={logo}
+                src={uiAssets.logo}
                 alt="logo"
                 style={{
                   borderRadius: "50%",

@@ -1,52 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
 
-// Import random selection of images from assets
-import img1 from "../../assets/banner1.jpg";
-import img2 from "../../assets/child1.jpg";
-import img3 from "../../assets/wedding.jpg";
-import img4 from "../../assets/maternity1.jpg";
-import img5 from "../../assets/AR_00586.jpg";
-import img6 from "../../assets/IMG_2734.jpg";
-import img7 from "../../assets/DSC09907.jpg";
-import img8 from "../../assets/YAZH8435.jpg";
-import img9 from "../../assets/IMG_4170.jpg";
-import img10 from "../../assets/AR_00926.jpg";
-import img11 from "../../assets/child2.jpg";
-import img12 from "../../assets/maternity3.jpg";
-import img13 from "../../assets/IMG_3287.jpg";
-import img14 from "../../assets/YAZH8441.jpg";
-import img15 from "../../assets/IMG_2789.jpg";
-
-import mapbutton from "../../assets/mapbutton.svg";
+import { uiAssets } from "../../assets/imageConfig.js";
+import { usePhoto } from "../../context/PhotoContext";
 import MapIframe from "../MapFrame";
 
-const allImages = [
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  img6,
-  img7,
-  img8,
-  img9,
-  img10,
-  img11,
-  img12,
-  img13,
-  img14,
-  img15,
-];
-
 const Instagram = () => {
-  const [displayImages, setDisplayImages] = useState([]);
+  const { groupedCategories } = usePhoto();
 
-  useEffect(() => {
-    // Randomly select 10 images
-    const shuffled = [...allImages].sort(() => 0.5 - Math.random());
-    setDisplayImages(shuffled.slice(0, 10));
-  }, []);
+  // Get all images from all categories
+  const allImages = groupedCategories.flatMap(category => category.images.map(img => img.url));
 
   const handleDirectionClick = () => {
     // Open the specific Google Maps link
@@ -64,13 +27,13 @@ const Instagram = () => {
       <h2 className="section__header">~ INSTAGRAM ~</h2>
 
       <div className="instagram__flex">
-        {displayImages.map((image, index) => (
+        {allImages.map((image, index) => (
           <img
             key={index}
             src={image}
             alt={`instagram ${index + 1}`}
             style={{
-              width: "200px",
+              width: "135px",
               height: "200px",
               objectFit: "cover",
               borderRadius: "8px",
@@ -85,7 +48,7 @@ const Instagram = () => {
           <div className="mapContainer">
             <MapIframe />
             <button className="directionButton" onClick={handleDirectionClick}>
-              Get Direction <img src={mapbutton} alt="" />
+              Get Direction <img src={uiAssets.mapbutton} alt="" />
             </button>
           </div>
 

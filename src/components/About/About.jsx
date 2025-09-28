@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo.jpg";
+import { uiAssets } from "../../assets/imageConfig.js";
 
 const About = () => {
   return (
@@ -15,7 +15,7 @@ const About = () => {
         Whether it's a milestone event, capturing precious child moments, or the breathtaking
         beauty of nature, we strive to encapsulate the essence of every moment.
       </p>
-      <img src={logo} alt="logo" style={{borderRadius: "50%", width: "200px", height: "100px", objectFit: "cover"}} />
+      <img src={uiAssets.logo} alt="logo" style={{borderRadius: "50%", width: "200px", height: "100px", objectFit: "cover"}} />
     </div>
   );
 };

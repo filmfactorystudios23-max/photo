@@ -1,35 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
-import { ArrowLeft, Loader, Camera, Eye, Download } from "lucide-react";
-import { photosService } from "../services/database.js";
-import "../styles/admin.css";
+import { ArrowLeft, Camera, Eye, Download } from "lucide-react";
 
 const CategoryPhotosPage = () => {
   const { categoryId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const [photos, setPhotos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const categoryName = location.state?.categoryName || "Category";
-
-  useEffect(() => {
-    loadCategoryPhotos();
-  }, [categoryId]);
-
-  const loadCategoryPhotos = async () => {
-    try {
-      setLoading(true);
-      const data = await photosService.getAll(Number(categoryId));
-      setPhotos(data);
-    } catch (err) {
-      setError("Failed to load photos: " + err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const openLightbox = (photo) => {
     setSelectedPhoto(photo);
@@ -42,24 +22,6 @@ const CategoryPhotosPage = () => {
   const goBack = () => {
     navigate("/categories");
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex justify-center items-center">
-        <Loader className="animate-spin h-12 w-12 text-blue-600" />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex justify-center items-center">
-        <div className="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg">
-          {error}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50">

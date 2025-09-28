@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import instagramImage from "../../assets/instagram.webp";
+import { uiAssets } from "../../assets/imageConfig.js";
 
 const InstagramFloat = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -22,7 +22,7 @@ const InstagramFloat = () => {
 
   return (
     <img
-      src={instagramImage}
+      src={uiAssets.instagram}
       alt="Instagram"
       onClick={handleInstagramClick}
       style={{

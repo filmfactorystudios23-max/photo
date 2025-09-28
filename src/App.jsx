@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { PhotoProvider } from "./context/PhotoContext";
 
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -13,9 +14,9 @@ import Footer from "./components/Footer/Footer";
 import FullGallery from "./pages/FullGallery";
 import ChildrenGallery from "./pages/ChildrenGallery";
 import MaternityGallery from "./pages/MaternityGallery";
-import AdminDashboard from "./pages/AdminDashboard";
 import CategoriesPage from "./pages/CategoriesPage";
 import CategoryPhotosPage from "./pages/CategoryPhotosPage";
+import DynamicCategoryPage from "./pages/DynamicCategoryPage";
 import ScrollToTop from "./components/ScrollToTop";
 import FloatingButtons from "./components/FloatingButtons/FloatingButtons";
 
@@ -59,7 +60,6 @@ const App = () => {
         interval: 500,
       });
       sr.reveal(".about__container img", { delay: 1500 });
-
 
       sr.reveal(".blog__content .section__header");
       sr.reveal(".blog__content h4", { delay: 500 });
@@ -125,19 +125,22 @@ const App = () => {
   );
 
   return (
-    <Router>
-      <ScrollToTop />
-      <FloatingButtons />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/gallery" element={<FullGallery />} />
-        <Route path="/children" element={<ChildrenGallery />} />
-        <Route path="/maternity" element={<MaternityGallery />} />
-        <Route path="/categories" element={<CategoriesPage />} />
-        <Route path="/category/:categoryId" element={<CategoryPhotosPage />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-      </Routes>
-    </Router>
+    <PhotoProvider>
+      <Router>
+        <ScrollToTop />
+        <FloatingButtons />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/gallery" element={<FullGallery />} />
+          <Route path="/categories" element={<CategoriesPage />} />
+          <Route
+            path="/category/:categoryId"
+            element={<CategoryPhotosPage />}
+          />
+          <Route path="/:categoryName" element={<DynamicCategoryPage />} />
+        </Routes>
+      </Router>
+    </PhotoProvider>
   );
 };
 

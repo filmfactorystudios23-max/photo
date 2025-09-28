@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import whatsappImage from "../../assets/whatsapp.webp";
+import { uiAssets } from "../../assets/imageConfig.js";
 
 const WhatsApp = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -24,7 +24,7 @@ const WhatsApp = () => {
 
   return (
     <img
-      src={whatsappImage}
+      src={uiAssets.whatsapp}
       alt="WhatsApp"
       onClick={handleWhatsAppClick}
       style={{

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
-import whatsappImage from "../../assets/whatsapp.webp";
-import instagramImage from "../../assets/instagram.webp";
+import { uiAssets } from "../../assets/imageConfig.js";
 
 const FloatingButtons = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -75,7 +74,7 @@ const FloatingButtons = () => {
 
       {/* Instagram Button */}
       <img
-        src={instagramImage}
+        src={uiAssets.instagram}
         alt="Instagram"
         onClick={handleInstagramClick}
         style={{
@@ -97,7 +96,7 @@ const FloatingButtons = () => {
 
       {/* WhatsApp Button */}
       <img
-        src={whatsappImage}
+        src={uiAssets.whatsapp}
         alt="WhatsApp"
         onClick={handleWhatsAppClick}
         style={{
